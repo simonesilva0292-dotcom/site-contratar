@@ -1,0 +1,224 @@
+/* ---
+    STYLE.CSS - VERSÃO "PERFEITA"
+    Design de alta conversão com foco em experiência de usuário premium.
+--- */
+
+/* --- FONTES E VARIÁVEIS GLOBAIS --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Paleta de Luxo */
+    --primary-color-glow: #4ade80; /* Verde neon para brilhos e destaques */
+    --primary-color: #27ae60;      /* Verde principal, mais sóbrio e elegante */
+    --primary-dark: #229954;       /* Verde escuro para hover */
+    --secondary-color: #1C2833;    /* Quase preto, para textos de alto contraste */
+    --text-color: #566573;         /* Cinza suave para parágrafos */
+    --background-color: #ffffff;
+    --surface-color: #f8f9fa;      /* Cor de fundo para seções e cards */
+    --border-color: #e5e7eb;
+
+    /* Design System */
+    --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --border-radius: 16px;
+    --transition-smooth: all 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* --- ANIMAÇÕES GLOBAIS --- */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes background-pan { 0% { background-position: 0% center; } 100% { background-position: -200% center; } }
+
+/* --- RESET E ESTILOS BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+html { scroll-behavior: smooth; }
+body {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    overflow-x: hidden;
+}
+
+/* --- EFEITO DE FUNDO SUTIL E ANIMADO --- */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, hsla(145, 63%, 92%, 0.7), transparent 40%),
+                linear-gradient(225deg, hsla(150, 63%, 90%, 0.7), transparent 40%);
+    z-index: -1;
+}
+
+/* --- ESTILOS DE COMPONENTES GLOBAIS --- */
+.section { padding: 100px 7%; animation: fadeIn 1s both; }
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+}
+.cta-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+.cta-button::before { /* Efeito de brilho no hover */
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease-in-out;
+}
+.cta-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+.cta-button:hover::before { left: 100%; }
+
+/* --- CABEÇALHO (NAVBAR) --- */
+#header {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 20px 7%;
+    background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+}
+.nav-menu a {
+    text-decoration: none; color: var(--secondary-color); font-weight: 500;
+    position: relative; padding: 5px 0;
+}
+.nav-menu a::after { /* Animação de sublinhado mais elegante */
+    content: ''; position: absolute; width: 100%; height: 2px; bottom: 0; left: 0;
+    background-color: var(--primary-color); transform: scaleX(0); transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+.nav-menu a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+/* --- SEÇÃO HERO --- */
+#hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    background: linear-gradient(135deg, hsla(145, 70%, 96%, 1), hsla(0, 0%, 100%, 0));
+}
+.hero-title {
+    font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px;
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-subtitle { font-size: 1.25rem; margin-bottom: 40px; color: var(--text-color); max-width: 500px; }
+.hero-image img { max-width: 500px; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+
+/* --- CARDS (Produtos e Planos) --- */
+.card, .plan-card {
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+    position: relative;
+}
+.card:hover, .plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color-glow);
+}
+.card .card-image-container { overflow: hidden; }
+.card img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.4s ease-out; }
+.card:hover img { transform: scale(1.05); }
+
+/* --- SEÇÃO DE PLANOS (HIRE) --- */
+#hire { background-color: var(--surface-color); }
+.plan-card { padding: 40px; display: flex; flex-direction: column; text-align: center; }
+.plan-price { font-size: 3.5rem; font-weight: 800; color: var(--primary-color); }
+.plan-features { list-style: none; margin: 30px 0; text-align: left; flex-grow: 1; }
+.plan-features li { margin-bottom: 15px; display: flex; align-items: center; color: var(--text-color); }
+.plan-features .fa-check-circle { color: var(--primary-dark); margin-right: 12px; font-size: 1.2rem; }
+.plan-features li.disabled { color: #bbb; text-decoration: none; }
+.plan-features .fa-times-circle { color: #ddd; margin-right: 12px; font-size: 1.2rem; }
+
+/* PLANO EM DESTAQUE COM BORDA AURORA ANIMADA */
+.plan-card.featured {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid transparent;
+    position: relative;
+}
+.plan-card.featured::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: var(--border-radius);
+    background: conic-gradient(from 180deg at 50% 50%, #2ecc71, #3498db, #9b59b6, #e74c3c, #f1c40f, #2ecc71);
+    animation: background-pan 3s linear infinite;
+}
+
+/* --- DEPOIMENTOS --- */
+.testimonial-card {
+    background: var(--surface-color);
+    padding: 40px; border-radius: var(--border-radius); text-align: center;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+.testimonial-card::before { /* Ícone de citação estilizado */
+    content: "\f10d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 20px; left: 20px;
+    font-size: 2rem; color: var(--primary-color-glow); opacity: 0.1;
+}
+.testimonial-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 4px solid var(--background-color); box-shadow: var(--shadow-md); }
+.testimonial-card p { font-size: 1.1rem; line-height: 1.7; color: var(--text-color); margin-bottom: 20px; }
+.testimonial-card h4 { font-weight: 600; color: var(--secondary-color); }
+
+/* --- FORMULÁRIO DE CONTATO --- */
+#contact-form input, #contact-form textarea {
+    width: 100%; padding: 18px; border: 1px solid var(--border-color);
+    border-radius: 12px; font-size: 1rem; transition: var(--transition-smooth);
+    background-color: var(--surface-color);
+}
+#contact-form input:focus, #contact-form textarea:focus {
+    outline: none; border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px hsla(145, 63%, 49%, 0.3);
+}
+
+/* --- RODAPÉ --- */
+#footer {
+    background-color: var(--secondary-color); color: #aab8c5; padding: 60px 7%;
+}
+.footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.footer-links a, .social-icons a { color: #aab8c5; transition: color 0.3s; }
+.footer-links a:hover, .social-icons a:hover { color: var(--primary-color-glow); }
+
+/* --- RESPONSIVIDADE (Mantendo a estrutura sólida anterior) --- */
+@media (max-width: 1024px) {
+    .nav-menu { position: fixed; left: -100%; top: 80px; flex-direction: column; background-color: var(--background-color); width: 100%; text-align: center; transition: 0.3s; box-shadow: var(--shadow-lg); }
+    .nav-menu.active { left: 0; }
+    .nav-menu li { padding: 1.5rem 0; }
+    .hamburger { display: block; cursor: pointer; }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .hero-title { font-size: 3rem; }
+}
+
+@media (max-width: 768px) {
+    #hero, #services, #app { flex-direction: column; text-align: center; }
+    #hero { padding-top: 150px; }
+    .hero-title { font-size: 2.5rem; }
+    .section-title { font-size: 2.2rem; }
+}

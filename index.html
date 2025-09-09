@@ -1,19 +1,67 @@
-        <!-- SEÇÃO SERVIÇOS -->
-        <section id="services" class="section">
-            <div class="service-content">
-                <h2 class="section-title">Criação de Sites Profissionais</h2>
-                <p>Tenha um site moderno e responsivo que representa a qualidade do seu negócio e atrai mais clientes.</p>
-                <!-- BOTÃO ALTERADO: Agora é um link para a nova seção -->
-                <a href="#hire" class="cta-button">Ver Planos</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolvedor Web Profissional | Criação de Sites</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome (para ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    
+    <!-- LINHA ESSENCIAL QUE CONECTA O CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO FIXO -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="#" class="logo">SuaLogo</a>
+            <ul class="nav-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#hire">Planos</a></li>
+                <li><a href="#testimonials">Depoimentos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <div class="service-image">
-                <img src="https://via.placeholder.com/450" alt="Mockup de site">
+        </nav>
+    </header>
+
+    <main>
+        <!-- SEÇÃO HERO -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Crio Sites Profissionais que Convertem Visitantes em Clientes</h1>
+                <p class="hero-subtitle">Design moderno, 100% responsivo e otimizado para performance. Leve seu negócio para o próximo nível com uma presença online impecável.</p>
+                <a href="#services" class="cta-button">Conheça os Serviços</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/500" alt="Ilustração de um desenvolvedor criando um site">
             </div>
         </section>
 
-        <!-- ====================================================== -->
-        <!--             NOVA SEÇÃO DE CONTRATAÇÃO (COLE AQUI)          -->
-        <!-- ====================================================== -->
+        <!-- ============================================= -->
+        <!--      SEU CÓDIGO COMEÇA AQUI (JÁ INTEGRADO)     -->
+        <!-- ============================================= -->
+        <section id="services" class="section">
+            <div class="service-content">
+                <h2 class="section-title">Soluções Completas em Desenvolvimento Web</h2>
+                <p>Desde landing pages impactantes até sistemas complexos, cada projeto é construído com foco em design, usabilidade e, acima de tudo, resultados. Crio a ferramenta perfeita para o seu negócio prosperar online.</p>
+                <a href="#hire" class="cta-button">Ver Planos</a>
+            </div>
+            <div class="service-image">
+                <img src="https://via.placeholder.com/450" alt="Mockup de um site responsivo em vários dispositivos">
+            </div>
+        </section>
+
         <section id="hire" class="section">
             <h2 class="section-title">Escolha o Plano Ideal para o seu Negócio</h2>
             <div class="plans-grid">
@@ -70,6 +118,68 @@
                 </div>
             </div>
         </section>
-        <!-- ====================================================== -->
-        <!--                FIM DA NOVA SEÇÃO                     -->
-        <!-- ====================================================== -->
+        <!-- ============================================= -->
+        <!--      SEU CÓDIGO TERMINA AQUI                  -->
+        <!-- ============================================= -->
+
+        <!-- SEÇÃO DEPOIMENTOS -->
+        <section id="testimonials" class="section">
+            <h2 class="section-title">O que meus clientes dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="https://via.placeholder.com/80" alt="Foto do cliente Carlos Souza">
+                    <p>"O site que ele criou para minha empresa ficou fantástico! Profissional, rápido e o resultado superou todas as minhas expectativas. Recomendo de olhos fechados!"</p>
+                    <h4>- Carlos Souza</h4>
+                </div>
+                <div class="testimonial-card">
+                    <img src="https://via.placeholder.com/80" alt="Foto da cliente Juliana Andrade">
+                    <p>"Desde que lançamos o novo site, nossas vendas aumentaram em 30%. O design é intuitivo e a performance é incrível. Um trabalho de primeira linha."</p>
+                    <h4>- Juliana Andrade</h4>
+                </div>
+                 <div class="testimonial-card">
+                    <img src="https://via.placeholder.com/80" alt="Foto do cliente Marcos Lima">
+                    <p>"Profissionalismo do início ao fim. Entendeu perfeitamente a identidade da minha marca e a traduziu em um site lindo e funcional."</p>
+                    <h4>- Marcos Lima</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Vamos Construir seu Projeto</h2>
+            <div class="contact-container">
+                <form id="contact-form">
+                    <input type="text" id="name" placeholder="Seu nome" required>
+                    <input type="email" id="email" placeholder="Seu e-mail" required>
+                    <textarea id="message" rows="5" placeholder="Descreva sua ideia ou necessidade" required></textarea>
+                    <button type="submit" class="cta-button">Enviar Mensagem</button>
+                </form>
+                <div class="quick-links">
+                    <h3>Acesso Rápido</h3>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Seu Nome ou Marca. Todos os direitos reservados.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO VOLTAR AO TOPO -->
+    <a href="#" id="back-to-top" class="hidden"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
